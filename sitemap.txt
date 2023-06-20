@@ -1,4 +1,4 @@
-http://example.com/posts/b9b527cc.html
-http://example.com/categories/index.html
-http://example.com/tags/index.html
-http://example.com/
+https://luoyuxuanryan.github.io/posts/b9b527cc.html
+https://luoyuxuanryan.github.io/categories/index.html
+https://luoyuxuanryan.github.io/tags/index.html
+https://luoyuxuanryan.github.io/
