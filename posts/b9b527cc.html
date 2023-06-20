@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.17.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="—— 通过 Python 实现   数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="通过 Python 实现的数据可视化">
+<meta property="og:url" content="http://example.com/posts/b9b527cc.html">
+<meta property="og:site_name" content="Ryan&#39;s Blog">
+<meta property="og:description" content="—— 通过 Python 实现   数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/bca6f699c1d14fd3b58c13211f9a4166.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/d2d0524562c04ba68afcf5c0d8a6f079.png#pic_center">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/a4e94c89d367463385c4ff43f7577606.png#pic_center">
+<meta property="article:published_time" content="2023-06-20T11:51:26.000Z">
+<meta property="article:modified_time" content="2023-06-20T12:08:41.168Z">
+<meta property="article:author" content="Ryan Luo">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="数据可视化">
+<meta property="article:tag" content="matplotlib">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/bca6f699c1d14fd3b58c13211f9a4166.png#pic_center">
+
+
+<link rel="canonical" href="http://example.com/posts/b9b527cc.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/posts/b9b527cc.html","path":"posts/b9b527cc.html","title":"通过 Python 实现的数据可视化"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>通过 Python 实现的数据可视化 | Ryan's Blog</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/rss.xml" title="Ryan's Blog" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ryan's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%88%A9%E7%94%A8Matplotlib%E5%BA%93%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">一、利用 Matplotlib 库实现数据可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81Matplotlib%E5%BA%93%E7%9A%84%E5%AE%89%E8%A3%85"><span class="nav-number">1.1.</span> <span class="nav-text">1、Matplotlib 库的安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E5%88%A9%E7%94%A8matplotlib%E5%AE%9E%E7%8E%B0%E7%BB%98%E5%88%B6%E7%AE%80%E5%8D%95%E7%9A%84%E5%9B%BE%E8%A1%A8"><span class="nav-number">1.2.</span> <span class="nav-text">2、利用 matplotlib 实现绘制简单的图表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AF%BC%E5%85%A5csv%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%95%B0%E6%8D%AE%E5%B9%B6%E4%B8%94%E8%BF%9B%E8%A1%8C%E6%9B%B4%E5%8A%A0%E5%A4%8D%E6%9D%82%E7%9A%84%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number"></span> <span class="nav-text">二、导入 csv 文件中的数据并且进行更加复杂的数据可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E9%80%9A%E8%BF%87csv%E6%96%87%E4%BB%B6%E8%AE%B0%E5%BD%95%E6%95%B0%E6%8D%AE"><span class="nav-number">1.</span> <span class="nav-text">1、通过 csv 文件记录数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E5%B9%B6%E8%BF%9B%E8%A1%8C%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">2. 打开 csv 文件读取数据并进行可视化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE%E5%A6%82%E4%B8%8B"><span class="nav-number"></span> <span class="nav-text">效果图如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E4%BD%BF%E7%94%A8Python%E8%BF%9B%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E4%BC%98%E5%8A%BF%E5%88%86%E6%9E%90"><span class="nav-number"></span> <span class="nav-text">三、使用 Python 进行数据可视化的优势分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%AE%80%E5%8D%95%E6%98%93%E4%B8%8A%E6%89%8B"><span class="nav-number">1.</span> <span class="nav-text">1. 简单易上手</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Python%E5%9C%A8%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E5%92%8C%E4%BA%A4%E4%BA%92%E3%80%81%E6%8E%A2%E7%B4%A2%E6%80%A7%E8%AE%A1%E7%AE%97%E4%BB%A5%E5%8F%8A%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E7%AD%89%E6%96%B9%E9%9D%A2%E9%83%BD%E6%98%BE%E5%BE%97%E6%AF%94%E8%BE%83%E6%B4%BB%E8%B7%83"><span class="nav-number">2.</span> <span class="nav-text">2.Python 在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%BC%96%E7%A8%8B%E8%83%BD%E5%8A%9B%E5%BC%BA%E5%A4%A7"><span class="nav-number">3.</span> <span class="nav-text">3. 编程能力强大</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD"><span class="nav-number">4.</span> <span class="nav-text">4. 人工智能</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ryan Luo"
+      src="/img/avatar.jpg">
+  <p class="site-author-name" itemprop="name">Ryan Luo</p>
+  <div class="site-description" itemprop="description">Ryan's Blog</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/LuoYuXuanRyan" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;LuoYuXuanRyan" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1505172926@qq.com" title="E-Mail → mailto:1505172926@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://blocklune.github.io/" title="https:&#x2F;&#x2F;blocklune.github.io&#x2F;" rel="noopener" target="_blank">Fish Pond</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/posts/b9b527cc.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/avatar.jpg">
+      <meta itemprop="name" content="Ryan Luo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ryan's Blog">
+      <meta itemprop="description" content="Ryan's Blog">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="通过 Python 实现的数据可视化 | Ryan's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          通过 Python 实现的数据可视化
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-06-20 19:51:26 / 修改时间：20:08:41" itemprop="dateCreated datePublished" datetime="2023-06-20T19:51:26+08:00">2023-06-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cs/" itemprop="url" rel="index"><span itemprop="name">CS</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/cs/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+<p align="right">—— 通过 Python 实现
+
+
+</p><p>数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。</p>
+<span id="more"></span>
+
+<h3 id="一、利用Matplotlib库实现数据可视化"><a href="#一、利用Matplotlib库实现数据可视化" class="headerlink" title="一、利用Matplotlib库实现数据可视化"></a>一、利用 Matplotlib 库实现数据可视化</h3><h4 id="1、Matplotlib库的安装"><a href="#1、Matplotlib库的安装" class="headerlink" title="1、Matplotlib库的安装"></a>1、Matplotlib 库的安装</h4><p>Windows+R，输入 cmd 启动 CMD 命令提示符控制器，输入指令<br><code>python pip -m install user_matplotlib</code><br>如果提示错误可考虑使用国内镜像<br><code>python pip install -i https://mirrors.aliyun.com/pypi/simple/ matplotlib</code><br>提示安装成功</p>
+<blockquote>
+<p><em>Successfully installed pip-22.3.1</em></p>
+</blockquote>
+<h4 id="2、利用matplotlib实现绘制简单的图表"><a href="#2、利用matplotlib实现绘制简单的图表" class="headerlink" title="2、利用matplotlib实现绘制简单的图表"></a>2、利用 matplotlib 实现绘制简单的图表</h4><p>简单代码及注释如下</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x_values = <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">1001</span>)  <span class="comment"># X轴的值</span></span><br><span class="line">y_values = [x ** <span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> x_values]  <span class="comment"># Y轴的值</span></span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># fig画布，ax子图区域</span></span><br><span class="line">ax.scatter(x_values, y_values, s=<span class="number">10</span>, c=y_values, cmap=plt.cm.Greens)  <span class="comment"># 绘制散点图</span></span><br><span class="line">ax.grid(<span class="literal">True</span>)  <span class="comment"># 打开网格</span></span><br><span class="line">ax.grid(color=<span class="string">'gray'</span>, ls=<span class="string">'-.'</span>, lw=<span class="number">0.25</span>)  <span class="comment"># 设置网格颜色，线型，线宽</span></span><br><span class="line">ax.set_title(<span class="string">"Squares"</span>, fontsize=<span class="number">25</span>)  <span class="comment"># 设置图表标题</span></span><br><span class="line">ax.set_xlabel(<span class="string">"value"</span>, fontsize=<span class="number">15</span>)  <span class="comment"># 设置X轴标签</span></span><br><span class="line">ax.set_ylabel(<span class="string">"square value"</span>, fontsize=<span class="number">15</span>)  <span class="comment"># 设置Y轴标签</span></span><br><span class="line">ax.tick_params(axis=<span class="string">'both'</span>, labelsize=<span class="number">15</span>)  <span class="comment"># 设置刻度标签大小</span></span><br><span class="line">ax.axis([<span class="number">0</span>, <span class="number">1100</span>, <span class="number">0</span>, <span class="number">1100000</span>])  <span class="comment"># 设置X轴坐标为0-1100，Y轴坐标为0-11000000</span></span><br><span class="line">plt.savefig(<span class="string">'squares_plt.png'</span>)  <span class="comment"># 保存图片并将其命名为"squares_plt.png"</span></span><br><span class="line">plt.show()  <span class="comment"># 展示图表</span></span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<p>效果图如下<br><img data-src="https://img-blog.csdnimg.cn/bca6f699c1d14fd3b58c13211f9a4166.png#pic_center" alt="在这里插入图片描述"></p>
+<hr>
+<p>简单代码解释<br>1. 用 import 引入 matplotlib.pyplot 库并简写为 plt<br>2. 设定 X 轴数据与 Y 轴数据<br>3. 创建 fig 画布，ax 子图区域<br>4. 利用 scatter () 方法绘制散点图并着色，本例中设置为依照 Y 值大小渐变绿色<br>5. 打开并设置网格<br>6. 设置图表标题，设置 X 轴与 Y 轴标签<br>7. 设置 X 轴与 Y 轴坐标数据范围<br>8. 保存图片并展示图表</p>
+<blockquote>
+<p>ps:<code>plt.savefig('squares_plt.png')</code> 一定要写在 <code>plt.show()</code> 前面，否则只会保存空白图片<br>其原理是 <code>plt.show()</code> 执行完毕后会生成一张新的空白图表导致 <code>plt.savefig('squares_plt.png')</code> 保存的是这张新的空白图表</p>
+</blockquote>
+<h2 id="二、导入csv文件中的数据并且进行更加复杂的数据可视化"><a href="#二、导入csv文件中的数据并且进行更加复杂的数据可视化" class="headerlink" title="二、导入csv文件中的数据并且进行更加复杂的数据可视化"></a>二、导入 csv 文件中的数据并且进行更加复杂的数据可视化</h2><h3 id="1、通过csv文件记录数据"><a href="#1、通过csv文件记录数据" class="headerlink" title="1、通过csv文件记录数据"></a>1、通过 csv 文件记录数据</h3><p>在 excel 中记录如下数据</p>
+<table>
+<thead>
+<tr>
+<th align="center">时间</th>
+<th align="center">最高温</th>
+<th align="center">最低温</th>
+<th align="center">天气</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"> 2022-11-22</td>
+<td align="center">17</td>
+<td align="center">12</td>
+<td align="center"> 小雨</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-23</td>
+<td align="center">16</td>
+<td align="center">11</td>
+<td align="center"> 多云</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-24</td>
+<td align="center">19</td>
+<td align="center">11</td>
+<td align="center"> 多云</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-25</td>
+<td align="center">18</td>
+<td align="center">10</td>
+<td align="center"> 阴</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-26</td>
+<td align="center">19</td>
+<td align="center">10</td>
+<td align="center"> 多云</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-27</td>
+<td align="center">21</td>
+<td align="center">14</td>
+<td align="center"> 多云</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-28</td>
+<td align="center">23</td>
+<td align="center">15</td>
+<td align="center"> 小雨</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-29</td>
+<td align="center">17</td>
+<td align="center">3</td>
+<td align="center"> 中雨</td>
+</tr>
+<tr>
+<td align="center"> 2022-11-30</td>
+<td align="center">2</td>
+<td align="center">-1</td>
+<td align="center"> 阴</td>
+</tr>
+<tr>
+<td align="center"> 2022-12-01</td>
+<td align="center">3</td>
+<td align="center">-2</td>
+<td align="center"> 阴</td>
+</tr>
+<tr>
+<td align="center"> 2022-12-02</td>
+<td align="center">7</td>
+<td align="center">0</td>
+<td align="center"> 晴</td>
+</tr>
+<tr>
+<td align="center"> 2022-12-03</td>
+<td align="center">7</td>
+<td align="center">5</td>
+<td align="center"> 小雨</td>
+</tr>
+<tr>
+<td align="center"> 2022-12-04</td>
+<td align="center">7</td>
+<td align="center">2</td>
+<td align="center"> 小雨</td>
+</tr>
+<tr>
+<td align="center"> 2022-12-05</td>
+<td align="center">6</td>
+<td align="center">0</td>
+<td align="center"> 晴</td>
+</tr>
+<tr>
+<td align="center"> 2022-12-06</td>
+<td align="center">9</td>
+<td align="center">1</td>
+<td align="center"> 阴</td>
+</tr>
+<tr>
+<td align="center"> 2022-12-07</td>
+<td align="center">7</td>
+<td align="center">6</td>
+<td align="center"> 小雨</td>
+</tr>
+</tbody></table>
+<p>点击 “文件”=&gt;“另存为”=&gt;“选择位置”=&gt;“保存类型”=&gt;“CSV UTF-8 (逗号分隔)(*.csv)”=&gt;“保存” 即可保存此文件</p>
+<h3 id="2-打开csv文件读取数据并进行可视化"><a href="#2-打开csv文件读取数据并进行可视化" class="headerlink" title="2.打开csv文件读取数据并进行可视化"></a>2. 打开 csv 文件读取数据并进行可视化</h3><p>本例中以 11 月 23 日 10 时通过《天气》app 获取的栖霞区近期天气情况为数据绘制相关图表</p>
+<p>具体代码如下</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span></span><br><span class="line">x = []</span><br><span class="line">y1 = []</span><br><span class="line">y2 = []</span><br><span class="line">weather = []</span><br><span class="line">kind = [<span class="string">"晴"</span>, <span class="string">"多云"</span>, <span class="string">"阴"</span>, <span class="string">"小雨"</span>, <span class="string">"中雨"</span>]</span><br><span class="line">s = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">"weather.csv"</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>) <span class="keyword">as</span> csvfile:  <span class="comment"># 打开csv文件</span></span><br><span class="line">    reader = csv.reader(csvfile, delimiter=<span class="string">','</span>)  <span class="comment"># 读取csv文件</span></span><br><span class="line">    header = <span class="built_in">next</span>(reader)  <span class="comment"># 跳过第一行</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        currentDate = datetime.strptime(row[<span class="number">0</span>], <span class="string">"%Y-%m-%d"</span>)  <span class="comment"># 按格式读取时间</span></span><br><span class="line">        x.append(currentDate)</span><br><span class="line">        y1.append(<span class="built_in">int</span>(row[<span class="number">1</span>]))</span><br><span class="line">        y2.append(<span class="built_in">int</span>(row[<span class="number">2</span>]))</span><br><span class="line">        weather.append(row[<span class="number">3</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> weather:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"晴"</span>:</span><br><span class="line">        s[<span class="number">0</span>] = s[<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"多云"</span>:</span><br><span class="line">        s[<span class="number">1</span>] = s[<span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"阴"</span>:</span><br><span class="line">        s[<span class="number">2</span>] = s[<span class="number">2</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"小雨"</span>:</span><br><span class="line">        s[<span class="number">3</span>] = s[<span class="number">3</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"中雨"</span>:</span><br><span class="line">        s[<span class="number">4</span>] = s[<span class="number">4</span>] + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># fig画布，ax子图区域</span></span><br><span class="line">ax.grid(<span class="literal">True</span>)  <span class="comment"># 打开网格</span></span><br><span class="line">ax.grid(color=<span class="string">'gray'</span>, ls=<span class="string">'-.'</span>, lw=<span class="number">0.25</span>)  <span class="comment"># 设置网格颜色，线型，线宽</span></span><br><span class="line">plt.plot(x, y1, label=<span class="string">'最高温'</span>, c=<span class="string">'pink'</span>, zorder=<span class="number">1</span>)  <span class="comment"># 绘制折线图</span></span><br><span class="line">plt.plot(x, y2, label=<span class="string">'最低温'</span>, c=<span class="string">'orange'</span>, zorder=<span class="number">1</span>)  <span class="comment"># 绘制折线图</span></span><br><span class="line">plt.scatter(x, y1, marker=<span class="string">'*'</span>, c=y1, cmap=<span class="string">'autumn_r'</span>, zorder=<span class="number">2</span>)  <span class="comment"># 绘制散点图作为折点标注</span></span><br><span class="line">plt.scatter(x, y2, marker=<span class="string">'o'</span>, c=y2, cmap=<span class="string">'coolwarm'</span>, zorder=<span class="number">2</span>)  <span class="comment"># 绘制散点图作为折点标注</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(x)):</span><br><span class="line">    ax.text(x[i], y1[i], (y1[i]), c=<span class="string">'steelblue'</span>, fontsize=<span class="number">12</span>)  <span class="comment"># 标注各点温度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(x)):</span><br><span class="line">    ax.text(x[i], y2[i], (y2[i]), c=<span class="string">'green'</span>, fontsize=<span class="number">12</span>)  <span class="comment"># 标注各点温度</span></span><br><span class="line">plt.title(<span class="string">"栖霞区近日天气（数据获取时间：11月23日10时）"</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">"日期"</span>, fontsize=<span class="number">10</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">"温度"</span>, fontsize=<span class="number">10</span>)</span><br><span class="line">fig.autofmt_xdate(rotation=<span class="number">45</span>)  <span class="comment"># 为了防止时间过长导致重叠而将其旋转45°</span></span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">'栖霞区近日天气.png'</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># fig画布，ax子图区域</span></span><br><span class="line">plt.pie(s, labels=kind, autopct=<span class="string">"%1.2f%%"</span>, explode=[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0</span>])  <span class="comment"># 非零值的饼脱离整个图</span></span><br><span class="line">plt.title(<span class="string">"栖霞区近日天气"</span>, fontsize=<span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'栖霞区近日天气饼图.png'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></tbody></table></figure>
+
+<hr>
+<h2 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下<br><img data-src="https://img-blog.csdnimg.cn/d2d0524562c04ba68afcf5c0d8a6f079.png#pic_center" alt="在这里插入图片描述"></h2><p><img data-src="https://img-blog.csdnimg.cn/a4e94c89d367463385c4ff43f7577606.png#pic_center" alt="在这里插入图片描述"></p>
+<h2 id="三、使用Python进行数据可视化的优势分析"><a href="#三、使用Python进行数据可视化的优势分析" class="headerlink" title="三、使用Python进行数据可视化的优势分析"></a>三、使用 Python 进行数据可视化的优势分析</h2><h3 id="1-简单易上手"><a href="#1-简单易上手" class="headerlink" title="1.简单易上手"></a>1. 简单易上手</h3><p>Python 语法简单的多，代码十分容易被读写，适合刚入门的新手学习。我们在处理数据的时候，一般都希望数据能够转化成可运算的数字形式，这样，不管是没学过编程的人还是学过编程的人都能够看懂这个数据。</p>
+<h3 id="2-Python在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃"><a href="#2-Python在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃" class="headerlink" title="2.Python在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃"></a>2.Python 在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃</h3><p>python 拥有 numpy、matplotlib、scikit-learn、pandas、ipython 等工具在科学计算方面十分有优势，尤其是 pandas，在处理中型数据方面可以说有着无与伦比的优势，已经成为数据分析中流砥柱的分析工具。</p>
+<h3 id="3-编程能力强大"><a href="#3-编程能力强大" class="headerlink" title="3.编程能力强大"></a>3. 编程能力强大</h3><p>python 有些非常强大的数据分析能力，并且还可以利用 Python 进行爬虫，写游戏，以及自动化运维，在这些领域中有着很广泛的应用，这些优点就使得一种技术去解决所有的业务服务问题，这就充分的体现的 Python 有利于各个业务之间的融合。如果使用 Python，能够大大的提高数据分析的效率。</p>
+<h3 id="4-人工智能"><a href="#4-人工智能" class="headerlink" title="4.人工智能"></a>4. 人工智能</h3><p>人工智能需要的是即时性，而 Python 是一种非常简洁的语言，同时有着丰富的数据库以及活跃的社区，这样就能够轻松的提取数据，从而为人工智能做出优质的服务。</p>
+<blockquote>
+<p>Python 语言得益于它的简单方便使得在大数据、数据分析以及人工智能方面都有十分明显的存在感，对于数据分析从业者以及想要进入数据分析从业者的人来说，简单易学容易上手的优势也是一个优势，要做好数据分析，一定要学会 Python 语言。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="/rss.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># Python</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag"># 数据可视化</a>
+              <a href="/tags/matplotlib/" rel="tag"># matplotlib</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ryan Luo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

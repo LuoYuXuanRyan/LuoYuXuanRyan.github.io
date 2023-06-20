@@ -9,29 +9,36 @@
     <atom:link href="http://example.com/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>Ryan&#39;s Blog</description>
-    <pubDate>Tue, 20 Jun 2023 11:40:39 GMT</pubDate>
+    <pubDate>Tue, 20 Jun 2023 12:08:41 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
-      <title>Hello World</title>
-      <link>http://example.com/posts/4a17b156.html</link>
-      <guid>http://example.com/posts/4a17b156.html</guid>
-      <pubDate>Tue, 20 Jun 2023 11:40:39 GMT</pubDate>
+      <title>通过 Python 实现的数据可视化</title>
+      <link>http://example.com/posts/b9b527cc.html</link>
+      <guid>http://example.com/posts/b9b527cc.html</guid>
+      <pubDate>Tue, 20 Jun 2023 11:51:26 GMT</pubDate>
       
-        
-        
-          
-          
-      <description>&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http</description>
-          
-        
+      <description>&lt;p align=&quot;right&quot;&gt;—— 通过 Python 实现
+
+
+&lt;/p&gt;&lt;p&gt;数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。&lt;/p&gt;</description>
       
       
       
       
+      <category domain="http://example.com/categories/cs/">CS</category>
+      
+      <category domain="http://example.com/categories/cs/python/">Python</category>
       
       
-      <comments>http://example.com/posts/4a17b156.html#disqus_thread</comments>
+      <category domain="http://example.com/tags/python/">Python</category>
+      
+      <category domain="http://example.com/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</category>
+      
+      <category domain="http://example.com/tags/matplotlib/">matplotlib</category>
+      
+      
+      <comments>http://example.com/posts/b9b527cc.html#disqus_thread</comments>
       
     </item>
     
