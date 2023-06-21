@@ -3,13 +3,13 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ryan&#39;s Blog</title>
+    <title>Radish Garden</title>
     <link>https://luoyuxuanryan.github.io/</link>
     
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
-    <description>Ryan&#39;s Blog</description>
-    <pubDate>Wed, 21 Jun 2023 14:01:28 GMT</pubDate>
+    <description>A CS enthusiast😊</description>
+    <pubDate>Wed, 21 Jun 2023 14:52:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
