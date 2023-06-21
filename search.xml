@@ -6,142 +6,167 @@
     <content><![CDATA[
 <p align="right">—— 通过 Python 实现
 
-
 </p><p>数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。</p>
 <span id="more"></span>
-
-<h2 id="一、利用Matplotlib库实现数据可视化"><a href="#一、利用Matplotlib库实现数据可视化" class="headerlink" title="一、利用Matplotlib库实现数据可视化"></a>一、利用 Matplotlib 库实现数据可视化</h2><h3 id="1、Matplotlib库的安装"><a href="#1、Matplotlib库的安装" class="headerlink" title="1、Matplotlib库的安装"></a>1、Matplotlib 库的安装</h3><p>Windows+R，输入 cmd 启动 CMD 命令提示符控制器，输入指令<br><code>python pip -m install user_matplotlib</code><br>如果提示错误可考虑使用国内镜像<br><code>python pip install -i https://mirrors.aliyun.com/pypi/simple/ matplotlib</code><br>提示安装成功</p>
+<h2 id="一-利用matplotlib库实现数据可视化"><a class="markdownIt-Anchor" href="#一-利用matplotlib库实现数据可视化"></a> 一、利用 Matplotlib 库实现数据可视化</h2>
+<h3 id="1-matplotlib库的安装"><a class="markdownIt-Anchor" href="#1-matplotlib库的安装"></a> 1、Matplotlib 库的安装</h3>
+<p>Windows+R，输入 cmd 启动 CMD 命令提示符控制器，输入指令<br>
+<code>python pip -m install user_matplotlib</code><br>
+如果提示错误可考虑使用国内镜像<br>
+<code>python pip install -i https://mirrors.aliyun.com/pypi/simple/ matplotlib</code><br>
+提示安装成功</p>
 <blockquote>
 <p><em>Successfully installed pip-22.3.1</em></p>
 </blockquote>
-<h3 id="2、利用matplotlib实现绘制简单的图表"><a href="#2、利用matplotlib实现绘制简单的图表" class="headerlink" title="2、利用matplotlib实现绘制简单的图表"></a>2、利用 matplotlib 实现绘制简单的图表</h3><p>简单代码及注释如下</p>
+<h3 id="2-利用matplotlib实现绘制简单的图表"><a class="markdownIt-Anchor" href="#2-利用matplotlib实现绘制简单的图表"></a> 2、利用 matplotlib 实现绘制简单的图表</h3>
+<p>简单代码及注释如下</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x_values = <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">1001</span>)  <span class="comment"># X轴的值</span></span><br><span class="line">y_values = [x ** <span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> x_values]  <span class="comment"># Y轴的值</span></span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># fig画布，ax子图区域</span></span><br><span class="line">ax.scatter(x_values, y_values, s=<span class="number">10</span>, c=y_values, cmap=plt.cm.Greens)  <span class="comment"># 绘制散点图</span></span><br><span class="line">ax.grid(<span class="literal">True</span>)  <span class="comment"># 打开网格</span></span><br><span class="line">ax.grid(color=<span class="string">'gray'</span>, ls=<span class="string">'-.'</span>, lw=<span class="number">0.25</span>)  <span class="comment"># 设置网格颜色，线型，线宽</span></span><br><span class="line">ax.set_title(<span class="string">"Squares"</span>, fontsize=<span class="number">25</span>)  <span class="comment"># 设置图表标题</span></span><br><span class="line">ax.set_xlabel(<span class="string">"value"</span>, fontsize=<span class="number">15</span>)  <span class="comment"># 设置X轴标签</span></span><br><span class="line">ax.set_ylabel(<span class="string">"square value"</span>, fontsize=<span class="number">15</span>)  <span class="comment"># 设置Y轴标签</span></span><br><span class="line">ax.tick_params(axis=<span class="string">'both'</span>, labelsize=<span class="number">15</span>)  <span class="comment"># 设置刻度标签大小</span></span><br><span class="line">ax.axis([<span class="number">0</span>, <span class="number">1100</span>, <span class="number">0</span>, <span class="number">1100000</span>])  <span class="comment"># 设置X轴坐标为0-1100，Y轴坐标为0-11000000</span></span><br><span class="line">plt.savefig(<span class="string">'squares_plt.png'</span>)  <span class="comment"># 保存图片并将其命名为"squares_plt.png"</span></span><br><span class="line">plt.show()  <span class="comment"># 展示图表</span></span><br></pre></td></tr></tbody></table></figure>
-
 <hr>
-<p>效果图如下<br><img data-src="https://s1.ax1x.com/2023/06/20/pC84Kwn.png" alt="简单的图表"></p>
+<p>效果图如下<br>
+<img data-src="https://s1.ax1x.com/2023/06/20/pC84Kwn.png" alt="简单的图表"></p>
 <hr>
-<p>简单代码解释<br>1. 用 import 引入 matplotlib.pyplot 库并简写为 plt<br>2. 设定 X 轴数据与 Y 轴数据<br>3. 创建 fig 画布，ax 子图区域<br>4. 利用 scatter () 方法绘制散点图并着色，本例中设置为依照 Y 值大小渐变绿色<br>5. 打开并设置网格<br>6. 设置图表标题，设置 X 轴与 Y 轴标签<br>7. 设置 X 轴与 Y 轴坐标数据范围<br>8. 保存图片并展示图表</p>
+<p>简单代码解释<br>
+1. 用 import 引入 matplotlib.pyplot 库并简写为 plt<br>
+2. 设定 X 轴数据与 Y 轴数据<br>
+3. 创建 fig 画布，ax 子图区域<br>
+4. 利用 scatter () 方法绘制散点图并着色，本例中设置为依照 Y 值大小渐变绿色<br>
+5. 打开并设置网格<br>
+6. 设置图表标题，设置 X 轴与 Y 轴标签<br>
+7. 设置 X 轴与 Y 轴坐标数据范围<br>
+8. 保存图片并展示图表</p>
 <blockquote>
-<p>ps:<code>plt.savefig('squares_plt.png')</code> 一定要写在 <code>plt.show()</code> 前面，否则只会保存空白图片<br>其原理是 <code>plt.show()</code> 执行完毕后会生成一张新的空白图表导致 <code>plt.savefig('squares_plt.png')</code> 保存的是这张新的空白图表</p>
+<p>ps:<code>plt.savefig('squares_plt.png')</code> 一定要写在 <code>plt.show()</code> 前面，否则只会保存空白图片<br>
+其原理是 <code>plt.show()</code> 执行完毕后会生成一张新的空白图表导致 <code>plt.savefig('squares_plt.png')</code> 保存的是这张新的空白图表</p>
 </blockquote>
-<h2 id="二、导入csv文件中的数据并且进行更加复杂的数据可视化"><a href="#二、导入csv文件中的数据并且进行更加复杂的数据可视化" class="headerlink" title="二、导入csv文件中的数据并且进行更加复杂的数据可视化"></a>二、导入 csv 文件中的数据并且进行更加复杂的数据可视化</h2><h3 id="1、通过csv文件记录数据"><a href="#1、通过csv文件记录数据" class="headerlink" title="1、通过csv文件记录数据"></a>1、通过 csv 文件记录数据</h3><p>在 excel 中记录如下数据</p>
+<h2 id="二-导入csv文件中的数据并且进行更加复杂的数据可视化"><a class="markdownIt-Anchor" href="#二-导入csv文件中的数据并且进行更加复杂的数据可视化"></a> 二、导入 csv 文件中的数据并且进行更加复杂的数据可视化</h2>
+<h3 id="1-通过csv文件记录数据"><a class="markdownIt-Anchor" href="#1-通过csv文件记录数据"></a> 1、通过 csv 文件记录数据</h3>
+<p>在 excel 中记录如下数据</p>
 <table>
 <thead>
 <tr>
-<th align="center">时间</th>
-<th align="center">最高温</th>
-<th align="center">最低温</th>
-<th align="center">天气</th>
+<th style="text-align:center">时间</th>
+<th style="text-align:center">最高温</th>
+<th style="text-align:center">最低温</th>
+<th style="text-align:center">天气</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center"> 2022-11-22</td>
-<td align="center">17</td>
-<td align="center">12</td>
-<td align="center"> 小雨</td>
+<tbody>
+<tr>
+<td style="text-align:center"> 2022-11-22</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">12</td>
+<td style="text-align:center"> 小雨</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-23</td>
-<td align="center">16</td>
-<td align="center">11</td>
-<td align="center"> 多云</td>
+<td style="text-align:center"> 2022-11-23</td>
+<td style="text-align:center">16</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center"> 多云</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-24</td>
-<td align="center">19</td>
-<td align="center">11</td>
-<td align="center"> 多云</td>
+<td style="text-align:center"> 2022-11-24</td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">11</td>
+<td style="text-align:center"> 多云</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-25</td>
-<td align="center">18</td>
-<td align="center">10</td>
-<td align="center"> 阴</td>
+<td style="text-align:center"> 2022-11-25</td>
+<td style="text-align:center">18</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center"> 阴</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-26</td>
-<td align="center">19</td>
-<td align="center">10</td>
-<td align="center"> 多云</td>
+<td style="text-align:center"> 2022-11-26</td>
+<td style="text-align:center">19</td>
+<td style="text-align:center">10</td>
+<td style="text-align:center"> 多云</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-27</td>
-<td align="center">21</td>
-<td align="center">14</td>
-<td align="center"> 多云</td>
+<td style="text-align:center"> 2022-11-27</td>
+<td style="text-align:center">21</td>
+<td style="text-align:center">14</td>
+<td style="text-align:center"> 多云</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-28</td>
-<td align="center">23</td>
-<td align="center">15</td>
-<td align="center"> 小雨</td>
+<td style="text-align:center"> 2022-11-28</td>
+<td style="text-align:center">23</td>
+<td style="text-align:center">15</td>
+<td style="text-align:center"> 小雨</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-29</td>
-<td align="center">17</td>
-<td align="center">3</td>
-<td align="center"> 中雨</td>
+<td style="text-align:center"> 2022-11-29</td>
+<td style="text-align:center">17</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center"> 中雨</td>
 </tr>
 <tr>
-<td align="center"> 2022-11-30</td>
-<td align="center">2</td>
-<td align="center">-1</td>
-<td align="center"> 阴</td>
+<td style="text-align:center"> 2022-11-30</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">-1</td>
+<td style="text-align:center"> 阴</td>
 </tr>
 <tr>
-<td align="center"> 2022-12-01</td>
-<td align="center">3</td>
-<td align="center">-2</td>
-<td align="center"> 阴</td>
+<td style="text-align:center"> 2022-12-01</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">-2</td>
+<td style="text-align:center"> 阴</td>
 </tr>
 <tr>
-<td align="center"> 2022-12-02</td>
-<td align="center">7</td>
-<td align="center">0</td>
-<td align="center"> 晴</td>
+<td style="text-align:center"> 2022-12-02</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center"> 晴</td>
 </tr>
 <tr>
-<td align="center"> 2022-12-03</td>
-<td align="center">7</td>
-<td align="center">5</td>
-<td align="center"> 小雨</td>
+<td style="text-align:center"> 2022-12-03</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center"> 小雨</td>
 </tr>
 <tr>
-<td align="center"> 2022-12-04</td>
-<td align="center">7</td>
-<td align="center">2</td>
-<td align="center"> 小雨</td>
+<td style="text-align:center"> 2022-12-04</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center"> 小雨</td>
 </tr>
 <tr>
-<td align="center"> 2022-12-05</td>
-<td align="center">6</td>
-<td align="center">0</td>
-<td align="center"> 晴</td>
+<td style="text-align:center"> 2022-12-05</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center"> 晴</td>
 </tr>
 <tr>
-<td align="center"> 2022-12-06</td>
-<td align="center">9</td>
-<td align="center">1</td>
-<td align="center"> 阴</td>
+<td style="text-align:center"> 2022-12-06</td>
+<td style="text-align:center">9</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center"> 阴</td>
 </tr>
 <tr>
-<td align="center"> 2022-12-07</td>
-<td align="center">7</td>
-<td align="center">6</td>
-<td align="center"> 小雨</td>
+<td style="text-align:center"> 2022-12-07</td>
+<td style="text-align:center">7</td>
+<td style="text-align:center">6</td>
+<td style="text-align:center"> 小雨</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
 <p>点击 “文件”=&gt;“另存为”=&gt;“选择位置”=&gt;“保存类型”=&gt;“CSV UTF-8 (逗号分隔)(*.csv)”=&gt;“保存” 即可保存此文件</p>
-<h3 id="2-打开csv文件读取数据并进行可视化"><a href="#2-打开csv文件读取数据并进行可视化" class="headerlink" title="2.打开csv文件读取数据并进行可视化"></a>2. 打开 csv 文件读取数据并进行可视化</h3><p>本例中以 11 月 23 日 10 时通过《天气》app 获取的栖霞区近期天气情况为数据绘制相关图表</p>
+<h3 id="2打开csv文件读取数据并进行可视化"><a class="markdownIt-Anchor" href="#2打开csv文件读取数据并进行可视化"></a> 2. 打开 csv 文件读取数据并进行可视化</h3>
+<p>本例中以 11 月 23 日 10 时通过《天气》app 获取的栖霞区近期天气情况为数据绘制相关图表</p>
 <p>具体代码如下</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line">plt.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line">plt.rcParams[<span class="string">'axes.unicode_minus'</span>] = <span class="literal">False</span></span><br><span class="line">x = []</span><br><span class="line">y1 = []</span><br><span class="line">y2 = []</span><br><span class="line">weather = []</span><br><span class="line">kind = [<span class="string">"晴"</span>, <span class="string">"多云"</span>, <span class="string">"阴"</span>, <span class="string">"小雨"</span>, <span class="string">"中雨"</span>]</span><br><span class="line">s = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">"weather.csv"</span>, <span class="string">'r'</span>, encoding=<span class="string">'UTF-8'</span>) <span class="keyword">as</span> csvfile:  <span class="comment"># 打开csv文件</span></span><br><span class="line">    reader = csv.reader(csvfile, delimiter=<span class="string">','</span>)  <span class="comment"># 读取csv文件</span></span><br><span class="line">    header = <span class="built_in">next</span>(reader)  <span class="comment"># 跳过第一行</span></span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">        currentDate = datetime.strptime(row[<span class="number">0</span>], <span class="string">"%Y-%m-%d"</span>)  <span class="comment"># 按格式读取时间</span></span><br><span class="line">        x.append(currentDate)</span><br><span class="line">        y1.append(<span class="built_in">int</span>(row[<span class="number">1</span>]))</span><br><span class="line">        y2.append(<span class="built_in">int</span>(row[<span class="number">2</span>]))</span><br><span class="line">        weather.append(row[<span class="number">3</span>])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> weather:</span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"晴"</span>:</span><br><span class="line">        s[<span class="number">0</span>] = s[<span class="number">0</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"多云"</span>:</span><br><span class="line">        s[<span class="number">1</span>] = s[<span class="number">1</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"阴"</span>:</span><br><span class="line">        s[<span class="number">2</span>] = s[<span class="number">2</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"小雨"</span>:</span><br><span class="line">        s[<span class="number">3</span>] = s[<span class="number">3</span>] + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> i == <span class="string">"中雨"</span>:</span><br><span class="line">        s[<span class="number">4</span>] = s[<span class="number">4</span>] + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(s)</span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># fig画布，ax子图区域</span></span><br><span class="line">ax.grid(<span class="literal">True</span>)  <span class="comment"># 打开网格</span></span><br><span class="line">ax.grid(color=<span class="string">'gray'</span>, ls=<span class="string">'-.'</span>, lw=<span class="number">0.25</span>)  <span class="comment"># 设置网格颜色，线型，线宽</span></span><br><span class="line">plt.plot(x, y1, label=<span class="string">'最高温'</span>, c=<span class="string">'pink'</span>, zorder=<span class="number">1</span>)  <span class="comment"># 绘制折线图</span></span><br><span class="line">plt.plot(x, y2, label=<span class="string">'最低温'</span>, c=<span class="string">'orange'</span>, zorder=<span class="number">1</span>)  <span class="comment"># 绘制折线图</span></span><br><span class="line">plt.scatter(x, y1, marker=<span class="string">'*'</span>, c=y1, cmap=<span class="string">'autumn_r'</span>, zorder=<span class="number">2</span>)  <span class="comment"># 绘制散点图作为折点标注</span></span><br><span class="line">plt.scatter(x, y2, marker=<span class="string">'o'</span>, c=y2, cmap=<span class="string">'coolwarm'</span>, zorder=<span class="number">2</span>)  <span class="comment"># 绘制散点图作为折点标注</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(x)):</span><br><span class="line">    ax.text(x[i], y1[i], (y1[i]), c=<span class="string">'steelblue'</span>, fontsize=<span class="number">12</span>)  <span class="comment"># 标注各点温度</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(x)):</span><br><span class="line">    ax.text(x[i], y2[i], (y2[i]), c=<span class="string">'green'</span>, fontsize=<span class="number">12</span>)  <span class="comment"># 标注各点温度</span></span><br><span class="line">plt.title(<span class="string">"栖霞区近日天气（数据获取时间：11月23日10时）"</span>, fontsize=<span class="number">14</span>)</span><br><span class="line">ax.set_xlabel(<span class="string">"日期"</span>, fontsize=<span class="number">10</span>)</span><br><span class="line">ax.set_ylabel(<span class="string">"温度"</span>, fontsize=<span class="number">10</span>)</span><br><span class="line">fig.autofmt_xdate(rotation=<span class="number">45</span>)  <span class="comment"># 为了防止时间过长导致重叠而将其旋转45°</span></span><br><span class="line">plt.legend()</span><br><span class="line">plt.savefig(<span class="string">'栖霞区近日天气.png'</span>)</span><br><span class="line">plt.show()</span><br><span class="line">fig, ax = plt.subplots()  <span class="comment"># fig画布，ax子图区域</span></span><br><span class="line">plt.pie(s, labels=kind, autopct=<span class="string">"%1.2f%%"</span>, explode=[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0</span>])  <span class="comment"># 非零值的饼脱离整个图</span></span><br><span class="line">plt.title(<span class="string">"栖霞区近日天气"</span>, fontsize=<span class="number">24</span>)</span><br><span class="line">plt.savefig(<span class="string">'栖霞区近日天气饼图.png'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></tbody></table></figure>
-
 <hr>
-<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><h2 id=""><a href="#" class="headerlink" title=""></a><img data-src="https://s1.ax1x.com/2023/06/20/pC84SLd.png" alt="栖霞区天气折线图"></h2><p><img data-src="https://s1.ax1x.com/2023/06/20/pC84VSS.png" alt="栖霞区天气饼状图"></p>
-<h2 id="三、使用Python进行数据可视化的优势分析"><a href="#三、使用Python进行数据可视化的优势分析" class="headerlink" title="三、使用Python进行数据可视化的优势分析"></a>三、使用 Python 进行数据可视化的优势分析</h2><h3 id="1-简单易上手"><a href="#1-简单易上手" class="headerlink" title="1.简单易上手"></a>1. 简单易上手</h3><p>Python 语法简单的多，代码十分容易被读写，适合刚入门的新手学习。我们在处理数据的时候，一般都希望数据能够转化成可运算的数字形式，这样，不管是没学过编程的人还是学过编程的人都能够看懂这个数据。</p>
-<h3 id="2-Python在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃"><a href="#2-Python在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃" class="headerlink" title="2.Python在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃"></a>2.Python 在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃</h3><p>python 拥有 numpy、matplotlib、scikit-learn、pandas、ipython 等工具在科学计算方面十分有优势，尤其是 pandas，在处理中型数据方面可以说有着无与伦比的优势，已经成为数据分析中流砥柱的分析工具。</p>
-<h3 id="3-编程能力强大"><a href="#3-编程能力强大" class="headerlink" title="3.编程能力强大"></a>3. 编程能力强大</h3><p>python 有些非常强大的数据分析能力，并且还可以利用 Python 进行爬虫，写游戏，以及自动化运维，在这些领域中有着很广泛的应用，这些优点就使得一种技术去解决所有的业务服务问题，这就充分的体现的 Python 有利于各个业务之间的融合。如果使用 Python，能够大大的提高数据分析的效率。</p>
-<h3 id="4-人工智能"><a href="#4-人工智能" class="headerlink" title="4.人工智能"></a>4. 人工智能</h3><p>人工智能需要的是即时性，而 Python 是一种非常简洁的语言，同时有着丰富的数据库以及活跃的社区，这样就能够轻松的提取数据，从而为人工智能做出优质的服务。</p>
+<h3 id="效果图"><a class="markdownIt-Anchor" href="#效果图"></a> 效果图</h3>
+<h2 id="栖霞区天气折线图"><a class="markdownIt-Anchor" href="#栖霞区天气折线图"></a> <img data-src="https://s1.ax1x.com/2023/06/20/pC84SLd.png" alt="栖霞区天气折线图"></h2>
+<p><img data-src="https://s1.ax1x.com/2023/06/20/pC84VSS.png" alt="栖霞区天气饼状图"></p>
+<h2 id="三-使用python进行数据可视化的优势分析"><a class="markdownIt-Anchor" href="#三-使用python进行数据可视化的优势分析"></a> 三、使用 Python 进行数据可视化的优势分析</h2>
+<h3 id="1简单易上手"><a class="markdownIt-Anchor" href="#1简单易上手"></a> 1. 简单易上手</h3>
+<p>Python 语法简单的多，代码十分容易被读写，适合刚入门的新手学习。我们在处理数据的时候，一般都希望数据能够转化成可运算的数字形式，这样，不管是没学过编程的人还是学过编程的人都能够看懂这个数据。</p>
+<h3 id="2python在数据分析和交互-探索性计算以及数据可视化等方面都显得比较活跃"><a class="markdownIt-Anchor" href="#2python在数据分析和交互-探索性计算以及数据可视化等方面都显得比较活跃"></a> 2.Python 在数据分析和交互、探索性计算以及数据可视化等方面都显得比较活跃</h3>
+<p>python 拥有 numpy、matplotlib、scikit-learn、pandas、ipython 等工具在科学计算方面十分有优势，尤其是 pandas，在处理中型数据方面可以说有着无与伦比的优势，已经成为数据分析中流砥柱的分析工具。</p>
+<h3 id="3编程能力强大"><a class="markdownIt-Anchor" href="#3编程能力强大"></a> 3. 编程能力强大</h3>
+<p>python 有些非常强大的数据分析能力，并且还可以利用 Python 进行爬虫，写游戏，以及自动化运维，在这些领域中有着很广泛的应用，这些优点就使得一种技术去解决所有的业务服务问题，这就充分的体现的 Python 有利于各个业务之间的融合。如果使用 Python，能够大大的提高数据分析的效率。</p>
+<h3 id="4人工智能"><a class="markdownIt-Anchor" href="#4人工智能"></a> 4. 人工智能</h3>
+<p>人工智能需要的是即时性，而 Python 是一种非常简洁的语言，同时有着丰富的数据库以及活跃的社区，这样就能够轻松的提取数据，从而为人工智能做出优质的服务。</p>
 <blockquote>
 <p>Python 语言得益于它的简单方便使得在大数据、数据分析以及人工智能方面都有十分明显的存在感，对于数据分析从业者以及想要进入数据分析从业者的人来说，简单易学容易上手的优势也是一个优势，要做好数据分析，一定要学会 Python 语言。</p>
 </blockquote>
@@ -154,6 +179,46 @@
         <tag>Python</tag>
         <tag>数据可视化</tag>
         <tag>matplotlib</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>(洛谷) P1036 选数</title>
+    <url>/posts/7d6020f3.html</url>
+    <content><![CDATA[<blockquote>
+<h1 id="noip2002-普及组-选数"><a class="markdownIt-Anchor" href="#noip2002-普及组-选数"></a> [NOIP2002 普及组] 选数</h1>
+<h2 id="题目描述"><a class="markdownIt-Anchor" href="#题目描述"></a> 题目描述</h2>
+<p>已知 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个整数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1,x_2,\cdots,x_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>，以及 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 个整数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">k&lt;n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span>）。从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个整数中任选 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span> 个整数相加，可分别得到一系列的和。例如当 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo>=</mo><mn>4</mn></mrow><annotation encoding="application/x-tex">n=4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>=</mo><mn>3</mn></mrow><annotation encoding="application/x-tex">k=3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">4</span></span></span></span> 个整数分别为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo separator="true">,</mo><mn>7</mn><mo separator="true">,</mo><mn>12</mn><mo separator="true">,</mo><mn>19</mn></mrow><annotation encoding="application/x-tex">3,7,12,19</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">3</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">7</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord">1</span><span class="mord">9</span></span></span></span> 时，可得全部的组合与它们的和为：</p>
+<span id="more"></span>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>7</mn><mo>+</mo><mn>12</mn><mo>=</mo><mn>22</mn></mrow><annotation encoding="application/x-tex">3+7+12=22</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">2</span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>7</mn><mo>+</mo><mn>19</mn><mo>=</mo><mn>29</mn></mrow><annotation encoding="application/x-tex">3+7+19=29</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">9</span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>7</mn><mo>+</mo><mn>12</mn><mo>+</mo><mn>19</mn><mo>=</mo><mn>38</mn></mrow><annotation encoding="application/x-tex">7+12+19=38</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">8</span></span></span></span></p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>12</mn><mo>+</mo><mn>19</mn><mo>=</mo><mn>34</mn></mrow><annotation encoding="application/x-tex">3+12+19=34</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span><span class="mord">4</span></span></span></span></p>
+<p>现在，要求你计算出和为素数共有多少种。</p>
+<p>例如上例，只有一种的和为素数：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>3</mn><mo>+</mo><mn>7</mn><mo>+</mo><mn>19</mn><mo>=</mo><mn>29</mn></mrow><annotation encoding="application/x-tex">3+7+19=29</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord">9</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">9</span></span></span></span>。</p>
+<h2 id="输入格式"><a class="markdownIt-Anchor" href="#输入格式"></a> 输入格式</h2>
+<p>第一行两个空格隔开的整数 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>k</mi></mrow><annotation encoding="application/x-tex">n,k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>20</mn></mrow><annotation encoding="application/x-tex">1 \le n \le 20</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7719400000000001em;vertical-align:-0.13597em;"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord">0</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>k</mi><mo>&lt;</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">k&lt;n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathnormal" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span>）。</p>
+<p>第二行 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathnormal">n</span></span></span></span> 个整数，分别为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>x</mi><mn>2</mn></msub><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><msub><mi>x</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">x_1,x_2,\cdots,x_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>≤</mo><msub><mi>x</mi><mi>i</mi></msub><mo>≤</mo><mn>5</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>6</mn></msup></mrow><annotation encoding="application/x-tex">1 \le x_i \le 5\times 10^6</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.7859700000000001em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">6</span></span></span></span></span></span></span></span></span></span></span>）。</p>
+<h2 id="输出格式"><a class="markdownIt-Anchor" href="#输出格式"></a> 输出格式</h2>
+<p>输出一个整数，表示种类数。</p>
+<h2 id="样例-1"><a class="markdownIt-Anchor" href="#样例-1"></a> 样例 #1</h2>
+<h3 id="样例输入-1"><a class="markdownIt-Anchor" href="#样例输入-1"></a> 样例输入 #1</h3>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">4 3</span><br><span class="line">3 7 12 19</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="样例输出-1"><a class="markdownIt-Anchor" href="#样例输出-1"></a> 样例输出 #1</h3>
+<figure class="highlight plaintext"><table><tbody><tr><td class="code"><pre><span class="line">1</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="提示"><a class="markdownIt-Anchor" href="#提示"></a> 提示</h2>
+<p><strong>【题目来源】</strong></p>
+<p>NOIP 2002 普及组第二题</p>
+</blockquote>
+<h2 id="题解"><a class="markdownIt-Anchor" href="#题解"></a> 题解</h2>
+<figure class="highlight cpp"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">isPrime</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (n &lt;= <span class="number">3</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">return</span> n &gt;= <span class="number">2</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i * i &lt;= n; ++i)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (n % i == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">popcount</span><span class="params">(<span class="type">int</span> n)</span> <span class="comment">// 判断一个数在二进制下有几个1</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (n &gt; <span class="number">0</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span>)</span><br><span class="line">            ++cnt;</span><br><span class="line">        n /= <span class="number">2</span>;</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> cnt;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="type">int</span> n, k;</span><br><span class="line">    cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">nums</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; ++i)</span><br><span class="line">    {</span><br><span class="line">        cin &gt;&gt; nums[i];</span><br><span class="line">    }</span><br><span class="line">    <span class="type">int</span> U = <span class="number">1</span> &lt;&lt; n;             <span class="comment">// 全集U</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; U; ++i) <span class="comment">// i是U的子集，遍历U的所有子集</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">popcount</span>(i) == k) <span class="comment">// 找到k个元素的子集</span></span><br><span class="line">        {</span><br><span class="line">            <span class="type">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; ++j)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (i &amp; (<span class="number">1</span> &lt;&lt; j)) <span class="comment">// 如果第j个元素在子集i中</span></span><br><span class="line">                    sum += nums[j];</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">isPrime</span>(sum))</span><br><span class="line">                ++cnt;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    cout &lt;&lt; cnt;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <categories>
+        <category>CS</category>
+        <category>algorithm</category>
+      </categories>
+      <tags>
+        <tag>CS</tag>
+        <tag>algorithm</tag>
       </tags>
   </entry>
 </search>
