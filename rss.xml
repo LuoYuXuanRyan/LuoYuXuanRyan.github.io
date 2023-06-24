@@ -9,8 +9,39 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Thu, 22 Jun 2023 15:36:13 GMT</pubDate>
+    <pubDate>Sat, 24 Jun 2023 08:40:31 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>(洛谷) P1739 表达式括号匹配</title>
+      <link>https://luoyuxuanryan.github.io/posts/6d1f218b.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/6d1f218b.html</guid>
+      <pubDate>Sat, 24 Jun 2023 07:52:26 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目描述&quot;&gt;&lt;/a&gt; 题目描述&lt;/h2&gt;
+&lt;p&gt;假设一个表达式有英文字母（小写）、运算符（&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;、&lt;code&gt;*&lt;/code&gt;、&lt;code&gt;/&lt;/code&gt;）和左右小（圆）括号构成，以 &lt;code&gt;@&lt;/code&gt; 作为表达式的结束符。请编写一个程序检查表达式中的左右圆括号是否匹配，若匹配，则输出 &lt;code&gt;YES&lt;/code&gt;；否则输出 &lt;code&gt;NO&lt;/code&gt;。表达式长度小于 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;255&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;255&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.64444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;5&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，左圆括号少于 &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;20&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;20&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.64444em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 个。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/algorithm/">algorithm</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/stack/">stack</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/6d1f218b.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(洛谷) P1157 组合的输出</title>
@@ -77,9 +108,7 @@
       <guid>https://luoyuxuanryan.github.io/posts/b9b527cc.html</guid>
       <pubDate>Tue, 20 Jun 2023 11:51:26 GMT</pubDate>
       
-      <description>&lt;p align=&quot;right&quot;&gt;—— 通过 Python 实现
-
-&lt;/p&gt;&lt;p&gt;数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。&lt;/p&gt;</description>
+      <description>&lt;p&gt;数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。&lt;/p&gt;</description>
       
       
       
