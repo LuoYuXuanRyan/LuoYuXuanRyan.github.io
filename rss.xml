@@ -9,8 +9,69 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Sat, 24 Jun 2023 08:45:59 GMT</pubDate>
+    <pubDate>Mon, 26 Jun 2023 14:50:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>(力扣) 7. 整数反转</title>
+      <link>https://luoyuxuanryan.github.io/posts/18ee3081.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/18ee3081.html</guid>
+      <pubDate>Mon, 26 Jun 2023 14:43:56 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目描述&quot;&gt;&lt;/a&gt; 题目描述&lt;/h2&gt;
+&lt;p&gt;给你一个 32 位的有符号整数 &lt;code&gt;x&lt;/code&gt; ，返回将 &lt;code&gt;x&lt;/code&gt; 中的数字部分反转后的结果。&lt;/p&gt;
+&lt;p&gt;如果反转后整数超过 32 位的有符号整数的范围&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy=&quot;false&quot;&gt; [&lt;/mo&gt;&lt;mtext&gt;−&lt;/mtext&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mn&gt;31&lt;/mn&gt;&lt;/msup&gt;&lt;mo separator=&quot;true&quot;&gt;,&lt;/mo&gt;&lt;msup&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mn&gt;31&lt;/mn&gt;&lt;/msup&gt;&lt;mtext&gt;−&lt;/mtext&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo stretchy=&quot;false&quot;&gt;]&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;[−2^{31}, 2^{31} − 1]&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:1.064108em;vertical-align:-0.25em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;mord mtight&quot;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;−&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;]&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;，就返回 0。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/algorithm/">algorithm</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/18ee3081.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>(力扣) 3. 无重复字符的最长子串</title>
+      <link>https://luoyuxuanryan.github.io/posts/fd252f35.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/fd252f35.html</guid>
+      <pubDate>Sun, 25 Jun 2023 14:40:19 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目描述&quot;&gt;&lt;/a&gt; 题目描述&lt;/h2&gt;
+&lt;p&gt;给定一个字符串 &lt;code&gt;s&lt;/code&gt; ，请你找出其中不含有重复字符的 &lt;strong&gt;最长子串&lt;/strong&gt; 的长度。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/algorithm/">algorithm</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/two-pointers/">two pointers</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/fd252f35.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(洛谷) P1739 表达式括号匹配</title>
@@ -32,9 +93,9 @@
       
       <category domain="https://luoyuxuanryan.github.io/tags/cs/">CS</category>
       
-      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
-      
       <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
       
       <category domain="https://luoyuxuanryan.github.io/tags/stack/">stack</category>
       
@@ -64,9 +125,9 @@
       
       <category domain="https://luoyuxuanryan.github.io/tags/cs/">CS</category>
       
-      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
-      
       <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
       
       <category domain="https://luoyuxuanryan.github.io/tags/permutation/">permutation</category>
       
