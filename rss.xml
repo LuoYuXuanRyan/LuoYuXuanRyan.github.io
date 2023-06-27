@@ -9,8 +9,38 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Mon, 26 Jun 2023 14:50:32 GMT</pubDate>
+    <pubDate>Tue, 27 Jun 2023 14:49:01 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>(力扣) 35. 搜索插入位置</title>
+      <link>https://luoyuxuanryan.github.io/posts/916fb84.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/916fb84.html</guid>
+      <pubDate>Tue, 27 Jun 2023 14:32:24 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目描述&quot;&gt;&lt;/a&gt; 题目描述&lt;/h2&gt;
+&lt;p&gt;给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。&lt;/p&gt;
+&lt;p&gt;请必须使用时间复杂度为 &lt;code&gt;O(log n)&lt;/code&gt; 的算法。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/algorithm/">algorithm</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/binary-search/">binary search</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/916fb84.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(力扣) 7. 整数反转</title>
