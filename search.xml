@@ -1,6 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>SQL 知识概述 (continual updating)</title>
+    <url>/posts/187b1260.html</url>
+    <content><![CDATA[<h2 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h2>
+<h3 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装 MySQL</h3>
+<span id="more"></span>
+<p>…</p>
+<h2 id="语法基础"><a class="markdownIt-Anchor" href="#语法基础"></a> 语法基础</h2>
+<h3 id="sql是什么"><a class="markdownIt-Anchor" href="#sql是什么"></a> SQL 是什么</h3>
+<h4 id="sql简介"><a class="markdownIt-Anchor" href="#sql简介"></a> SQL 简介</h4>
+<p>SQL，即 "<strong>S</strong>tructured <strong>Q</strong>uery <strong>L</strong>anguage (结构化查询语言)"，是数据库的标准语言。SQL 有 6 个常用动词: insert (插入)、delete (删除)、select (选择)、update (更新)、create (创建) 和 grant (授权)。</p>
+<p>SQL 分类：</p>
+<ol>
+<li>数据定义语言 (DDL)</li>
+<li> 数据操纵语言 (DML)</li>
+<li> 数据控制语言 (DCL)</li>
+</ol>
+<h4 id="关键字"><a class="markdownIt-Anchor" href="#关键字"></a> 关键字</h4>
+<table>
+<thead>
+<tr>
+<th>关键字</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> ADD</td>
+<td> 在现有表中添加一列</td>
+</tr>
+<tr>
+<td> ADD CONSTRAINT</td>
+<td> 在创建表后添加约束</td>
+</tr>
+<tr>
+<td> ALTER</td>
+<td> 添加，删除或修改表中的列，或更改表中列的数据类型</td>
+</tr>
+<tr>
+<td> ALTER COLUMN</td>
+<td> 更改表中列的数据类型</td>
+</tr>
+<tr>
+<td> ALTER TABLE</td>
+<td> 添加，删除或修改表中的列</td>
+</tr>
+<tr>
+<td> ALL</td>
+<td> 如果所有子查询值都满足条件，则返回 true</td>
+</tr>
+<tr>
+<td>AND</td>
+<td> 仅包含两个条件都为真的行</td>
+</tr>
+<tr>
+<td> ANY</td>
+<td> 如果任何子查询值满足条件，则返回 true</td>
+</tr>
+<tr>
+<td>AS</td>
+<td> 用别名重命名列或表</td>
+</tr>
+<tr>
+<td> ASC</td>
+<td> 将结果集按升序排序</td>
+</tr>
+<tr>
+<td> BACKUP DATABASE</td>
+<td> 创建现有数据库的备份</td>
+</tr>
+<tr>
+<td> BETWEEN</td>
+<td> 选择给定范围内的值</td>
+</tr>
+<tr>
+<td> CASE</td>
+<td> 根据条件创建不同的输出</td>
+</tr>
+<tr>
+<td> CHECK</td>
+<td> 限制可以放置在列中的值的约束</td>
+</tr>
+<tr>
+<td> COLUMN</td>
+<td> 更改列的数据类型或删除表中的列</td>
+</tr>
+<tr>
+<td> CONSTRAINT</td>
+<td> 添加或删除约束</td>
+</tr>
+<tr>
+<td> CREATE</td>
+<td> 创建数据库，索引，视图，表或过程</td>
+</tr>
+<tr>
+<td> CREATE DATABASE</td>
+<td> 创建一个新的 SQL 数据库</td>
+</tr>
+<tr>
+<td> CREATE INDEX</td>
+<td> 在表上创建索引（允许重复值）</td>
+</tr>
+<tr>
+<td>CREATE OR REPLACE VIEW</td>
+<td> 更新视图</td>
+</tr>
+<tr>
+<td> CREATE TABLE</td>
+<td> 在数据库中创建一个新表</td>
+</tr>
+<tr>
+<td> CREATE PROCEDURE</td>
+<td> 创建一个存储过程</td>
+</tr>
+<tr>
+<td> CREATE UNIQUE INDEX</td>
+<td> 在表上创建唯一索引（无重复值）</td>
+</tr>
+<tr>
+<td>CREATE VIEW</td>
+<td> 根据 SELECT 语句的结果集创建视图</td>
+</tr>
+<tr>
+<td> DATABASE</td>
+<td> 创建或删除 SQL 数据库</td>
+</tr>
+<tr>
+<td> DEFAULT</td>
+<td> 为列提供默认值的约束</td>
+</tr>
+<tr>
+<td> DELETE</td>
+<td> 从表中删除行</td>
+</tr>
+<tr>
+<td> DESC</td>
+<td> 对结果集按降序排序</td>
+</tr>
+<tr>
+<td> DISTINCT</td>
+<td> 仅选择不同的（不同的）值</td>
+</tr>
+<tr>
+<td> DROP</td>
+<td> 删除列，约束，数据库，索引，表或视图</td>
+</tr>
+<tr>
+<td> DROP COLUMN</td>
+<td> 删除表中的列</td>
+</tr>
+<tr>
+<td> DROP CONSTRAINT</td>
+<td> 删除 UNIQUE，PRIMARY KEY，FOREIGN KEY 或 CHECK 约束</td>
+</tr>
+<tr>
+<td> DROP DATABASE</td>
+<td> 删除现有的 SQL 数据库</td>
+</tr>
+<tr>
+<td> DROP DEFAULT</td>
+<td> 删除默认约束</td>
+</tr>
+<tr>
+<td> DROP INDEX</td>
+<td> 删除表中的索引</td>
+</tr>
+<tr>
+<td> DROP TABLE</td>
+<td> 删除数据库中的现有表</td>
+</tr>
+<tr>
+<td> DROP VIEW</td>
+<td> 删除视图</td>
+</tr>
+<tr>
+<td> EXEC</td>
+<td> 执行存储过程</td>
+</tr>
+<tr>
+<td> EXISTS</td>
+<td> 测试子查询中是否存在任何记录</td>
+</tr>
+<tr>
+<td> FOREIGN KEY</td>
+<td> 约束是用于将两个表链接在一起的键</td>
+</tr>
+<tr>
+<td> FROM</td>
+<td> 指定要从中选择或删除数据的表</td>
+</tr>
+<tr>
+<td> FULL OUTER JOIN</td>
+<td> 当左表或右表中存在匹配项时，返回所有行</td>
+</tr>
+<tr>
+<td> GROUP BY</td>
+<td> 对结果集进行分组（与汇总函数一起使用：COUNT，MAX，MIN，SUM，AVG）</td>
+</tr>
+<tr>
+<td>HAVING</td>
+<td> 使用汇总功能代替 WHERE</td>
+</tr>
+<tr>
+<td>IN</td>
+<td> 允许您在 WHERE 子句中指定多个值</td>
+</tr>
+<tr>
+<td> INDEX</td>
+<td> 创建或删除表中的索引</td>
+</tr>
+<tr>
+<td> INNER JOIN</td>
+<td> 返回两个表中具有匹配值的行</td>
+</tr>
+<tr>
+<td> INSERT INTO</td>
+<td> 在表格中插入新行</td>
+</tr>
+<tr>
+<td> INSERT INTO SELECT</td>
+<td> 将数据从一个表复制到另一个表</td>
+</tr>
+<tr>
+<td> IS NULL</td>
+<td> 测试空值</td>
+</tr>
+<tr>
+<td> IS NOT NULL</td>
+<td> 测试非空值</td>
+</tr>
+<tr>
+<td> JOIN</td>
+<td> 联接表</td>
+</tr>
+<tr>
+<td> LEFT JOIN</td>
+<td> 返回左表中的所有行，以及右表中的匹配行</td>
+</tr>
+<tr>
+<td> LIKE</td>
+<td> 在列中搜索指定的模式</td>
+</tr>
+<tr>
+<td> LIMIT</td>
+<td> 指定要在结果集中返回的记录数</td>
+</tr>
+<tr>
+<td> NOT</td>
+<td> 仅包含条件不成立的行</td>
+</tr>
+<tr>
+<td> NOT NULL</td>
+<td> 强制列不接受 NULL 值的约束</td>
+</tr>
+<tr>
+<td> OR</td>
+<td> 包括其中任一条件为真的行</td>
+</tr>
+<tr>
+<td> ORDER BY</td>
+<td> 对结果集按升序或降序排序</td>
+</tr>
+<tr>
+<td> OUTER JOIN</td>
+<td> 当左表或右表中存在匹配项时，返回所有行</td>
+</tr>
+<tr>
+<td> PRIMARY KEY</td>
+<td> 唯一标识数据库表中每个记录的约束</td>
+</tr>
+<tr>
+<td> PROCEDURE</td>
+<td> 存储过程</td>
+</tr>
+<tr>
+<td> RIGHT JOIN</td>
+<td> 返回右表中的所有行，以及左表中的匹配行</td>
+</tr>
+<tr>
+<td> ROWNUM</td>
+<td> 指定要在结果集中返回的记录数</td>
+</tr>
+<tr>
+<td> SELECT</td>
+<td> 从数据库中选择数据</td>
+</tr>
+<tr>
+<td> SELECT DISTINCT</td>
+<td> 仅选择不同的（不同的）值</td>
+</tr>
+<tr>
+<td> SELECT INTO</td>
+<td> 将数据从一个表复制到新表中</td>
+</tr>
+<tr>
+<td> SELECT TOP</td>
+<td> 指定要在结果集中返回的记录数</td>
+</tr>
+<tr>
+<td> SET</td>
+<td> 指定表中应更新的列和值</td>
+</tr>
+<tr>
+<td> TABLE</td>
+<td> 创建表，或添加，删除或修改表中的列，或删除表或表中的数据</td>
+</tr>
+<tr>
+<td> TOP</td>
+<td> 指定要在结果集中返回的记录数</td>
+</tr>
+<tr>
+<td> TRUNCATE TABLE</td>
+<td> 删除表中的数据，但不删除表本身</td>
+</tr>
+<tr>
+<td> UNION</td>
+<td> 合并两个或多个 SELECT 语句的结果集（仅不同的值）</td>
+</tr>
+<tr>
+<td>UNION ALL</td>
+<td> 合并两个或多个 SELECT 语句的结果集（允许重复值）</td>
+</tr>
+<tr>
+<td>UNIQUE</td>
+<td> 确保列中所有值唯一的约束</td>
+</tr>
+<tr>
+<td> UPDATE</td>
+<td> 更新表中的现有行</td>
+</tr>
+<tr>
+<td> VALUES</td>
+<td> 指定 INSERT INTO 语句的值</td>
+</tr>
+<tr>
+<td> VIEW</td>
+<td> 创建，更新或删除视图</td>
+</tr>
+<tr>
+<td> WHERE</td>
+<td> 筛选结果集以仅包含满足指定条件的记录</td>
+</tr>
+</tbody>
+</table>
+<h4 id="语法规则"><a class="markdownIt-Anchor" href="#语法规则"></a> 语法规则</h4>
+<ul>
+<li>不区分大小写</li>
+<li>以分号结尾</li>
+</ul>
+<h4 id="命名规则"><a class="markdownIt-Anchor" href="#命名规则"></a> 命名规则</h4>
+<ul>
+<li>不能是 SQL 关键字</li>
+<li>只能使用英文字母、数字、下划线</li>
+</ul>
+<h3 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h3>
+<ul>
+<li>数字</li>
+<li>字符串</li>
+<li>日期时间</li>
+<li>二进制</li>
+</ul>
+<h4 id="数字"><a class="markdownIt-Anchor" href="#数字"></a> 数字</h4>
+<p>整数</p>
+<ul>
+<li>tinyint</li>
+<li>smallint</li>
+<li>mediumint</li>
+<li>int / integer</li>
+<li>bigint</li>
+</ul>
+<p>浮点数</p>
+<ul>
+<li>float</li>
+<li>double</li>
+</ul>
+<p>定点数</p>
+<ul>
+<li>decimal (m,d) m 表示最多包含的有效数字个数（默认 10），d 表示有多少位小数（默认 0）</li>
+</ul>
+<h4 id="字符串"><a class="markdownIt-Anchor" href="#字符串"></a> 字符串</h4>
+<ul>
+<li>char</li>
+<li>varchar</li>
+<li>tinytext</li>
+<li>text</li>
+<li>mediumtext</li>
+<li>longtext</li>
+<li>enum</li>
+</ul>
+<h4 id="日期时间"><a class="markdownIt-Anchor" href="#日期时间"></a> 日期时间</h4>
+<ul>
+<li>date YYYY-MM-DD</li>
+<li>time HH:MM:SS</li>
+<li>datetime YYYY-MM-DD HH:MM:SS</li>
+<li>year YYYY</li>
+<li>timestamp YYYYMMDD HHMMSS</li>
+</ul>
+<h4 id="二进制"><a class="markdownIt-Anchor" href="#二进制"></a> 二进制</h4>
+<ul>
+<li>bit</li>
+<li>tinyblob</li>
+<li>blob</li>
+<li>mediumblob</li>
+<li>longblob</li>
+</ul>
+<h3 id="注释"><a class="markdownIt-Anchor" href="#注释"></a> 注释</h3>
+<ul>
+<li>– 注释内容</li>
+<li> /*<br>
+注释内容<br>
+注释内容<br>
+*/</li>
+</ul>
+<h2 id="查询操作"><a class="markdownIt-Anchor" href="#查询操作"></a> 查询操作</h2>
+<h3 id="select"><a class="markdownIt-Anchor" href="#select"></a> select</h3>
+<h4 id="select语句"><a class="markdownIt-Anchor" href="#select语句"></a> select 语句</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名 <span class="keyword">from</span> 列名</span><br></pre></td></tr></tbody></table></figure>
+<p>select 语句子句</p>
+<ul>
+<li>select</li>
+<li>from</li>
+<li>where</li>
+<li>group by</li>
+<li>having</li>
+<li>order by</li>
+<li>limit</li>
+</ul>
+<p>例：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name, type, price <span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+ <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> product; (查询速度慢，不推荐)</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="特殊列名"><a class="markdownIt-Anchor" href="#特殊列名"></a> 特殊列名</h4>
+<p>包含空格或者关键字，应该用<strong>反引号</strong>括起来，而不能用单引号或者双引号</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> `product name` <span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="换行说明"><a class="markdownIt-Anchor" href="#换行说明"></a> 换行说明</h4>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name, type, price</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<p>如果 SQL 语句比较短，可以只写一行；如果 SQL 语句比较长，以 “子句” 为单位进行换行</p>
+<h3 id="使用别名as"><a class="markdownIt-Anchor" href="#使用别名as"></a> 使用别名：as</h3>
+<h4 id="as关键字"><a class="markdownIt-Anchor" href="#as关键字"></a> as 关键字</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名 <span class="keyword">as</span> 别名</span><br><span class="line"><span class="keyword">from</span> 表名;</span><br></pre></td></tr></tbody></table></figure>
+<p>使用</p>
+<ul>
+<li>列表名比较长或可读性差</li>
+<li>使用内置函数</li>
+<li>用于多表查询</li>
+<li>需要把两个或更多的列放在一起</li>
+</ul>
+<p>例：</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> product_name</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> 名称</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> 名称,</span><br><span class="line">       type <span class="keyword">as</span> 类型,</span><br><span class="line">       price <span class="keyword">as</span> 售价</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<p>如果包含空格则应用英文<strong>双引号</strong>括起来，而不应用单引号或反引号</p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> "商品 名称"</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> "product-name"</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      <categories>
+        <category>CS</category>
+        <category>Database</category>
+      </categories>
+      <tags>
+        <tag>database</tag>
+        <tag>SQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>通过 Python 实现的数据可视化</title>
     <url>/posts/b9b527cc.html</url>
     <content><![CDATA[<p>数据可视化，是关于数据视觉表现形式的科学技术研究。其中，这种数据的视觉表现形式被定义为，一种以某种概要形式抽提出来的信息，包括相应信息单位的各种属性和变量。</p>

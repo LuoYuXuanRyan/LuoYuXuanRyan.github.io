@@ -9,8 +9,34 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Tue, 27 Jun 2023 14:49:01 GMT</pubDate>
+    <pubDate>Sat, 01 Jul 2023 13:12:16 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>SQL 知识概述 (continual updating)</title>
+      <link>https://luoyuxuanryan.github.io/posts/187b1260.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/187b1260.html</guid>
+      <pubDate>Sat, 01 Jul 2023 12:02:48 GMT</pubDate>
+      
+      <description>&lt;h2 id=&quot;数据库&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#数据库&quot;&gt;&lt;/a&gt; 数据库&lt;/h2&gt;
+&lt;h3 id=&quot;安装mysql&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#安装mysql&quot;&gt;&lt;/a&gt; 安装 MySQL&lt;/h3&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/database/">Database</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/database/">database</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/sql/">SQL</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/187b1260.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(力扣) 35. 搜索插入位置</title>
