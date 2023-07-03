@@ -6,7 +6,27 @@
     <content><![CDATA[<h2 id="数据库"><a class="markdownIt-Anchor" href="#数据库"></a> 数据库</h2>
 <h3 id="安装mysql"><a class="markdownIt-Anchor" href="#安装mysql"></a> 安装 MySQL</h3>
 <span id="more"></span>
-<p>…</p>
+<ol>
+<li>下载 MySQL<br>
+打开 <a href="https://dev.mysql.com/downloads/">MySQL 官网</a><code>https://dev.mysql.com/downloads/</code>，选择 <code>MySQL Installer for Windows</code>，如图：<br>
+<img data-src="https://s1.ax1x.com/2023/07/03/pCrRC4S.png" alt="MySQL安装1"><br>
+选择文件体积较大的文件安装<br>
+如图：<br>
+<img data-src="https://s1.ax1x.com/2023/07/03/pCrRl34.png" alt="MySQL安装2"><br>
+弹出的注册界面直接点击 <code>No thanks, just start my download.</code>，如图：<br>
+<img data-src="https://s1.ax1x.com/2023/07/03/pCrRBgH.png" alt="MySQL安装3"></li>
+<li>安装 MySQL<br>
+双击打开刚刚下载的文件开始安装<br>
+选择 <code>server only</code>，如图：<br>
+<img data-src="https://s1.ax1x.com/2023/07/03/pCrWlIf.png" alt="MySQL安装4"><br>
+在此界面设置 root 用户密码，如图：<br>
+<img data-src="https://s1.ax1x.com/2023/07/03/pCrWHQH.png" alt="MySQL安装5"><br>
+最后单击 <code>finish</code> 完成安装即可</li>
+<li>设置环境变量<br>
+右键单击<strong>此电脑</strong>，单击<strong>属性</strong>，选择<strong>系统</strong>，单击<strong>高级系统设置</strong>，单击<strong>环境变量</strong>，选择 <strong>Path</strong>，单击<strong>编辑</strong>，单击<strong>新建</strong>，复制<strong>安装 MySQL 的 bin 目录</strong>，点击确定保存即可。</li>
+<li>MySQL 常用命令行操作<br>
+<a href="https://zhuanlan.zhihu.com/p/304156322">点击前往查看</a></li>
+</ol>
 <h2 id="语法基础"><a class="markdownIt-Anchor" href="#语法基础"></a> 语法基础</h2>
 <h3 id="sql是什么"><a class="markdownIt-Anchor" href="#sql是什么"></a> SQL 是什么</h3>
 <h4 id="sql简介"><a class="markdownIt-Anchor" href="#sql简介"></a> SQL 简介</h4>
@@ -431,7 +451,7 @@
 <p>例：</p>
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name, type, price <span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
- <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> product; (查询速度慢，不推荐)</span><br></pre></td></tr></tbody></table></figure>
+ <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="operator">*</span> <span class="keyword">from</span> product; <span class="comment">-- 查询速度慢，不推荐</span></span><br></pre></td></tr></tbody></table></figure>
 <h4 id="特殊列名"><a class="markdownIt-Anchor" href="#特殊列名"></a> 特殊列名</h4>
 <p>包含空格或者关键字，应该用<strong>反引号</strong>括起来，而不能用单引号或者双引号</p>
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> `product name` <span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
@@ -455,7 +475,113 @@
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> 名称,</span><br><span class="line">       type <span class="keyword">as</span> 类型,</span><br><span class="line">       price <span class="keyword">as</span> 售价</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
 <p>如果包含空格则应用英文<strong>双引号</strong>括起来，而不应用单引号或反引号</p>
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> "商品 名称"</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
-<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> "product-name"</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>]]></content>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> name <span class="keyword">as</span> "product-name"</span><br><span class="line"><span class="keyword">from</span> product;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="条件子句where"><a class="markdownIt-Anchor" href="#条件子句where"></a> 条件子句：where</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">where</span> 条件;</span><br></pre></td></tr></tbody></table></figure>
+<p>一般结合以下运算符使用：</p>
+<ul>
+<li>比较运算符</li>
+<li>逻辑运算符</li>
+<li>其他运算符</li>
+</ul>
+<h4 id="比较运算符"><a class="markdownIt-Anchor" href="#比较运算符"></a> 比较运算符</h4>
+<ul>
+<li>&gt;</li>
+<li>&lt;</li>
+<li>=</li>
+<li>&gt;=</li>
+<li>&lt;=</li>
+<li>!&gt;</li>
+<li>!&lt;</li>
+<li>!= / &lt;&gt;</li>
+</ul>
+<h4 id="逻辑运算符"><a class="markdownIt-Anchor" href="#逻辑运算符"></a> 逻辑运算符</h4>
+<ul>
+<li>and</li>
+<li>or</li>
+<li>not</li>
+</ul>
+<h4 id="其他运算符"><a class="markdownIt-Anchor" href="#其他运算符"></a> 其他运算符</h4>
+<ul>
+<li>is null / isnull</li>
+<li>is not null</li>
+<li>in</li>
+<li>not in</li>
+<li>between A and B</li>
+<li>not between A and B</li>
+</ul>
+<h4 id="运算符优先级"><a class="markdownIt-Anchor" href="#运算符优先级"></a> 运算符优先级</h4>
+<ul>
+<li>*/ 高于 ±</li>
+<li>not &gt; and &gt; or</li>
+</ul>
+<h3 id="排序子句order-by"><a class="markdownIt-Anchor" href="#排序子句order-by"></a> 排序子句：order by</h3>
+<h4 id="order-by-子句"><a class="markdownIt-Anchor" href="#order-by-子句"></a> order by 子句</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 列名 <span class="keyword">asc</span> 或 <span class="keyword">desc</span>;</span><br></pre></td></tr></tbody></table></figure>
+<p><em>asc 表示升序，desc 表示降序</em></p>
+<h4 id="中文字符串字段排序"><a class="markdownIt-Anchor" href="#中文字符串字段排序"></a> 中文字符串字段排序</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> <span class="keyword">convert</span>(列名 <span class="keyword">using</span> gbk);</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="限制行数limit"><a class="markdownIt-Anchor" href="#限制行数limit"></a> 限制行数：limit</h3>
+<h4 id="limit-子句"><a class="markdownIt-Anchor" href="#limit-子句"></a> limit 子句</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line">limit n;</span><br></pre></td></tr></tbody></table></figure>
+<p>获取前 n 行，必须放在最后</p>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">limit <span class="keyword">start</span>, n</span><br></pre></td></tr></tbody></table></figure>
+<p>start 表示开始位置</p>
+<h3 id="去重处理distinct"><a class="markdownIt-Anchor" href="#去重处理distinct"></a> 去重处理：distinct</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">distinct</span> 字段列表</span><br><span class="line"><span class="keyword">from</span> 表名;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="数据统计"><a class="markdownIt-Anchor" href="#数据统计"></a> 数据统计</h2>
+<h3 id="算术运算"><a class="markdownIt-Anchor" href="#算术运算"></a> 算术运算</h3>
+<ul>
+<li>+</li>
+<li>-</li>
+<li>*</li>
+<li>/</li>
+</ul>
+<h3 id="聚合函数"><a class="markdownIt-Anchor" href="#聚合函数"></a> 聚合函数</h3>
+<ul>
+<li>sum()</li>
+<li>avg()</li>
+<li>max()</li>
+<li>min()</li>
+<li>count()</li>
+</ul>
+<p><strong>聚合函数一般用于 select 子句，而不能用于 where 子句</strong></p>
+<h4 id="求和sum"><a class="markdownIt-Anchor" href="#求和sum"></a> 求和：sum ()</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">sum</span>(列名)</span><br><span class="line"><span class="keyword">from</span> 表名;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="求平均值avg"><a class="markdownIt-Anchor" href="#求平均值avg"></a> 求平均值：avg ()</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">avg</span>(列名)</span><br><span class="line"><span class="keyword">from</span> 表名;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="求最值max-和-min"><a class="markdownIt-Anchor" href="#求最值max-和-min"></a> 求最值：max () 和 min ()</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">max</span>(列名)</span><br><span class="line"><span class="keyword">from</span> 表名;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="获取行数count"><a class="markdownIt-Anchor" href="#获取行数count"></a> 获取行数：count ()</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(列名)</span><br><span class="line"><span class="keyword">from</span> 表名;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="深入了解"><a class="markdownIt-Anchor" href="#深入了解"></a> 深入了解</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">函数名(类型 列名)</span><br></pre></td></tr></tbody></table></figure>
+<p>类型取值有两种：all 和 distinct，默认值是 all</p>
+<h4 id="特别注意"><a class="markdownIt-Anchor" href="#特别注意"></a> 特别注意</h4>
+<ul>
+<li><strong>聚合函数只能用于 select、order by、having 这 3 种子句，而不能用于 where、group by 等其他子句</strong></li>
+<li><strong> sum (),avg (),max (),min () 这 4 个聚合函数，只适用于统计数字类型的列。如果制定列的类型不是数字类型，就可能会报错</strong></li>
+</ul>
+<h3 id="分组子句group-by"><a class="markdownIt-Anchor" href="#分组子句group-by"></a> 分组子句：group by</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 列名;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="指定条件having"><a class="markdownIt-Anchor" href="#指定条件having"></a> 指定条件：having</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">where</span> 条件</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 列名</span><br><span class="line"><span class="keyword">having</span> 条件;</span><br></pre></td></tr></tbody></table></figure>
+<p>having 子句必须结合 group by 子句一起用，且必须写在 group by 子句后面</p>
+<h3 id="子句顺序"><a class="markdownIt-Anchor" href="#子句顺序"></a> 子句顺序</h3>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">where</span> 条件</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 列名</span><br><span class="line"><span class="keyword">having</span> 条件</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 列名</span><br><span class="line">limit n;</span><br></pre></td></tr></tbody></table></figure>]]></content>
       <categories>
         <category>CS</category>
         <category>Database</category>
