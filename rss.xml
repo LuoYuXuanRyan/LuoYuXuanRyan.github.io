@@ -9,8 +9,40 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Mon, 03 Jul 2023 14:34:51 GMT</pubDate>
+    <pubDate>Mon, 03 Jul 2023 16:21:58 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>(洛谷) P1102A-B 数对</title>
+      <link>https://luoyuxuanryan.github.io/posts/f7c7b95.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/f7c7b95.html</guid>
+      <pubDate>Mon, 03 Jul 2023 16:15:39 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&quot;题目背景&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目背景&quot;&gt;&lt;/a&gt; 题目背景&lt;/h2&gt;
+&lt;p&gt;出题是一件痛苦的事情！&lt;/p&gt;
+&lt;p&gt;相同的题目看多了也会有审美疲劳，于是我舍弃了大家所熟悉的 A+B Problem，改用 A-B 了哈哈！&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/algorithm/">algorithm</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/binary-search/">binary search</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/f7c7b95.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>SQL 知识概述 (continual updating)</title>
