@@ -9,8 +9,37 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Mon, 03 Jul 2023 16:21:58 GMT</pubDate>
+    <pubDate>Tue, 04 Jul 2023 10:00:32 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>(洛谷) P1928 外星密码</title>
+      <link>https://luoyuxuanryan.github.io/posts/36528647.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/36528647.html</guid>
+      <pubDate>Tue, 04 Jul 2023 09:55:30 GMT</pubDate>
+      
+      <description>&lt;blockquote&gt;
+&lt;h2 id=&quot;题目描述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#题目描述&quot;&gt;&lt;/a&gt; 题目描述&lt;/h2&gt;
+&lt;p&gt;有了防护伞，并不能完全避免 2012 的灾难。地球防卫小队决定去求助外星种族的帮助。经过很长时间的努力，小队终于收到了外星生命的回信。但是外星人发过来的却是一串密码。只有解开密码，才能知道外星人给的准确回复。</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/algorithm/">algorithm</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/c/">C++</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/algorithm/">algorithm</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/recursion/">recursion</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/36528647.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(洛谷) P1102A-B 数对</title>
