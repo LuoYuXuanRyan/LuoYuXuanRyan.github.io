@@ -848,6 +848,195 @@ table 语句的速度更快，性能更好，并且使用的系统和事务日�
 <h3 id="删除表"><a class="markdownIt-Anchor" href="#删除表"></a> 删除表</h3>
 <p><em>语法</em></p>
 <figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> 表名;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="列的属性"><a class="markdownIt-Anchor" href="#列的属性"></a> 列的属性</h2>
+<h3 id="列的属性简介"><a class="markdownIt-Anchor" href="#列的属性简介"></a> 列的属性简介</h3>
+<ul>
+<li>default</li>
+<li>not null</li>
+<li>auto-increment</li>
+<li>check</li>
+<li>unique</li>
+<li>primary key</li>
+<li>foreign key</li>
+<li>comment</li>
+</ul>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名</span><br><span class="line">(</span><br><span class="line">  列名<span class="number">1</span> 数据类型 列属性,</span><br><span class="line">  列名<span class="number">2</span> 数据类型 列属性,</span><br><span class="line">  ...,</span><br><span class="line">  列名n 数据类型 列属性,</span><br><span class="line">);</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="默认值"><a class="markdownIt-Anchor" href="#默认值"></a> 默认值</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">列名 数据类型 <span class="keyword">default</span> 默认值</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="非空"><a class="markdownIt-Anchor" href="#非空"></a> 非空</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">列名 数据类型 <span class="keyword">not</span> <span class="keyword">null</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="自动递增"><a class="markdownIt-Anchor" href="#自动递增"></a> 自动递增</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">列名 数据类型 auto_increment</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="条件检查"><a class="markdownIt-Anchor" href="#条件检查"></a> 条件检查</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">列名 数据类型 <span class="keyword">check</span>(表达式)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="唯一键"><a class="markdownIt-Anchor" href="#唯一键"></a> 唯一键</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">列名 数据类型 <span class="keyword">unique</span></span><br></pre></td></tr></tbody></table></figure>
+<h3 id="主键"><a class="markdownIt-Anchor" href="#主键"></a> 主键</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">列名 数据类型 <span class="keyword">primary</span> key</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>具有唯一性</li>
+<li>不允许为空</li>
+</ul>
+<p>主键和唯一键的区别</p>
+<ul>
+<li>主键的值不能为 NULL，而唯一键的值可以为 NULL</li>
+<li> 一个表只能有一个主键，但可以有多个唯一键</li>
+<li>主键可以作为外键，但是唯一键不可以</li>
+</ul>
+<h3 id="外键"><a class="markdownIt-Anchor" href="#外键"></a> 外键</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">constraint</span> 外键名 <span class="keyword">foreign</span> key(子表的列名) <span class="keyword">references</span> 父表名(父表的列名)</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>一般用父表的主键作为子表的外键</li>
+<li>插入数据时，必须先插入父表，然后才能插入子表</li>
+<li>删除表时，先删除子表，然后才能删除父表</li>
+</ul>
+<h3 id="注释-2"><a class="markdownIt-Anchor" href="#注释-2"></a> 注释</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line">列名 数据类型 comment <span class="string">'注释内容'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>注释是一个字符串，需要用单引号括起来</p>
+<h3 id="操作已有表"><a class="markdownIt-Anchor" href="#操作已有表"></a> 操作已有表</h3>
+<ul>
+<li>约束型属性</li>
+<li>其他属性</li>
+</ul>
+<h4 id="约束型属性"><a class="markdownIt-Anchor" href="#约束型属性"></a> 约束型属性</h4>
+<ul>
+<li>条件检查</li>
+<li>唯一键</li>
+<li>主键</li>
+<li>外键 </li>
+</ul>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">-- 添加属性</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名</span><br><span class="line"><span class="keyword">add</span> <span class="keyword">constraint</span> 标识名</span><br><span class="line">属性;</span><br><span class="line"><span class="comment">-- 删除属性</span></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名</span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">constraint</span> 标识名;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="其他属性"><a class="markdownIt-Anchor" href="#其他属性"></a> 其他属性</h4>
+<ul>
+<li>默认值</li>
+<li>非空</li>
+<li>自动递增</li>
+<li>注释</li>
+</ul>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> 表名</span><br><span class="line">modify 列名 数据类型 属性;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="多表查询"><a class="markdownIt-Anchor" href="#多表查询"></a> 多表查询</h2>
+<h3 id="多表查询简介"><a class="markdownIt-Anchor" href="#多表查询简介"></a> 多表查询简介</h3>
+<p>表与表的关系</p>
+<ul>
+<li>一对一</li>
+<li>一对多</li>
+<li>多对多</li>
+</ul>
+<p>多表查询的方式</p>
+<ul>
+<li>联合查询</li>
+<li>内连接</li>
+<li>外连接</li>
+<li>笛卡尔积连接</li>
+</ul>
+<h3 id="集合运算"><a class="markdownIt-Anchor" href="#集合运算"></a> 集合运算</h3>
+<ul>
+<li>并集</li>
+<li>交集</li>
+<li>差集</li>
+</ul>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">-- 并集</span></span><br><span class="line"><span class="keyword">select</span> 列名 <span class="keyword">from</span> 表A</span><br><span class="line"><span class="keyword">union</span></span><br><span class="line"><span class="keyword">select</span> 列名 <span class="keyword">from</span> 表B</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="内连接"><a class="markdownIt-Anchor" href="#内连接"></a> 内连接</h3>
+<h4 id="基本语法"><a class="markdownIt-Anchor" href="#基本语法"></a> 基本语法</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表A</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> 表B</span><br><span class="line"><span class="keyword">on</span> 表A.列名  <span class="operator">=</span> 表B.列名；</span><br></pre></td></tr></tbody></table></figure>
+<p>在多表连接中，不管在什么子句中，所有列名前面都应该加上一个表名</p>
+<h4 id="深入了解-3"><a class="markdownIt-Anchor" href="#深入了解-3"></a> 深入了解</h4>
+<ul>
+<li>
+<p>单表查询<br>
+对于单表查询来说，列名前面的表名前缀是可以省略的</p>
+</li>
+<li>
+<p>using (列名)<br>
+on staff.sid = market.sid 等价于 using (sid)</p>
+</li>
+<li>
+<p>连接多个表<br>
+<em>语法</em></p>
+</li>
+</ul>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表A</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> 表B <span class="keyword">on</span> 连接条件</span><br><span class="line"><span class="keyword">inner</span> <span class="keyword">join</span> 表C <span class="keyword">on</span> 连接条件</span><br><span class="line">...</span><br><span class="line">;</span><br></pre></td></tr></tbody></table></figure>
+<ul>
+<li>查询条件<br>
+内连接的查询条件不一定要使用 "="，还可以使用非等值连接</li>
+</ul>
+<h3 id="外连接"><a class="markdownIt-Anchor" href="#外连接"></a> 外连接</h3>
+<h4 id="外连接是什么"><a class="markdownIt-Anchor" href="#外连接是什么"></a> 外连接是什么</h4>
+<ul>
+<li>左外连接：根据左表提取结果</li>
+<li>右外连接：根据右表提取结果</li>
+<li>完全外连接：同时对左表和右表提取结果</li>
+</ul>
+<h4 id="左外连接"><a class="markdownIt-Anchor" href="#左外连接"></a> 左外连接</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表A</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">outer</span> <span class="keyword">join</span> 表B</span><br><span class="line"><span class="keyword">on</span> 表A.列名  <span class="operator">=</span> 表B.列名；</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="右外连接"><a class="markdownIt-Anchor" href="#右外连接"></a> 右外连接</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表A</span><br><span class="line"><span class="keyword">right</span> <span class="keyword">outer</span> <span class="keyword">join</span> 表B</span><br><span class="line"><span class="keyword">on</span> 表A.列名  <span class="operator">=</span> 表B.列名；</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="完全外连接"><a class="markdownIt-Anchor" href="#完全外连接"></a> 完全外连接</h4>
+<p>首先获取左外连接的结果，然后获取右外连接的结果，最后使用 union 求并集即可</p>
+<h3 id="笛卡尔积连接"><a class="markdownIt-Anchor" href="#笛卡尔积连接"></a> 笛卡尔积连接</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 列名</span><br><span class="line"><span class="keyword">from</span> 表名<span class="number">1</span>, 表名<span class="number">2</span>;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="视图"><a class="markdownIt-Anchor" href="#视图"></a> 视图</h2>
+<h3 id="创建视图"><a class="markdownIt-Anchor" href="#创建视图"></a> 创建视图</h3>
+<h4 id="视图简介"><a class="markdownIt-Anchor" href="#视图简介"></a> 视图简介</h4>
+<p>表保存的是实际的数据，而视图保存的是一条 select 语句，本身并不存储数据<br>
+<em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> 视图名</span><br><span class="line"><span class="keyword">as</span> <span class="keyword">select</span> 语句;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="修改数据"><a class="markdownIt-Anchor" href="#修改数据"></a> 修改数据</h4>
+<ul>
+<li>更新数据<br>
+<em>语法 </em></li>
+</ul>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">update</span> 视图名</span><br><span class="line"><span class="keyword">set</span> 列表 <span class="operator">=</span> 新值;</span><br></pre></td></tr></tbody></table></figure>
+<p>视图和原表共享一份数据</p>
+<ul>
+<li>
+<p>插入数据<br>
+往视图中插入数据时，即使不符合 where 条件，数据也会被直接插入原表中</p>
+</li>
+<li>
+<p>删除数据</p>
+</li>
+</ul>
+<p>以下几种情况的视图不允许修改数据</p>
+<ul>
+<li>包含聚合函数的视图</li>
+<li>包含子查询的视图</li>
+<li>包含 distinct, group by, having, union 等的视图</li>
+<li>由不可更新的视图所创建的视图</li>
+</ul>
+<h3 id="查看视图"><a class="markdownIt-Anchor" href="#查看视图"></a> 查看视图</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment">-- 方式1</span></span><br><span class="line"><span class="keyword">describe</span> 视图名;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 方式2</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">table</span> status <span class="keyword">like</span> <span class="string">'视图名'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- 方式3</span></span><br><span class="line"><span class="keyword">show</span> <span class="keyword">create</span> <span class="keyword">view</span> 视图名;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="修改视图"><a class="markdownIt-Anchor" href="#修改视图"></a> 修改视图</h3>
+<h4 id="alter-view"><a class="markdownIt-Anchor" href="#alter-view"></a> alter view</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">view</span> 视图名</span><br><span class="line"><span class="keyword">as</span> <span class="keyword">select</span> 语句;</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="create-or-replace-view"><a class="markdownIt-Anchor" href="#create-or-replace-view"></a> create or replace view</h4>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">or</span> replace <span class="keyword">view</span> 视图名</span><br><span class="line"><span class="keyword">as</span> <span class="keyword">select</span> 语句;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="删除视图"><a class="markdownIt-Anchor" href="#删除视图"></a> 删除视图</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">view</span> 视图;</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="多表视图"><a class="markdownIt-Anchor" href="#多表视图"></a> 多表视图</h3>
+<p><em>语法</em></p>
+<figure class="highlight sql"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">view</span> 视图名</span><br><span class="line"><span class="keyword">as</span> <span class="keyword">select</span> 语句;</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="索引"><a class="markdownIt-Anchor" href="#索引"></a> 索引</h2>
+<h3 id="索引简介"><a class="markdownIt-Anchor" href="#索引简介"></a> 索引简介</h3>
 ]]></content>
       <categories>
         <category>CS</category>
