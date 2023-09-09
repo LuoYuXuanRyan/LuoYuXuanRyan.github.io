@@ -9,8 +9,36 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Fri, 07 Jul 2023 04:00:56 GMT</pubDate>
+    <pubDate>Sat, 09 Sep 2023 13:42:23 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>图像标准化</title>
+      <link>https://luoyuxuanryan.github.io/posts/3404668d.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/3404668d.html</guid>
+      <pubDate>Sat, 09 Sep 2023 13:26:08 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;图像标准化&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#图像标准化&quot;&gt;&lt;/a&gt; 图像标准化&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;torchvision.transforms.Normalize&lt;/code&gt; 是一个进行图像标准化的类。&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/python/">Python</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/python/">Python</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/pytorch/">pytorch</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/torchvision/">torchvision</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/3404668d.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>(洛谷) P1928 外星密码</title>
