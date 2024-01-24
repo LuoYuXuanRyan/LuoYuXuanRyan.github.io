@@ -9,8 +9,37 @@
     <atom:link href="https://luoyuxuanryan.github.io/rss.xml" rel="self" type="application/rss+xml"/>
     
     <description>A CS enthusiast😊</description>
-    <pubDate>Sat, 09 Sep 2023 13:42:23 GMT</pubDate>
+    <pubDate>Wed, 24 Jan 2024 02:57:29 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Python 组 WoC 相关</title>
+      <link>https://luoyuxuanryan.github.io/posts/553dbefa.html</link>
+      <guid>https://luoyuxuanryan.github.io/posts/553dbefa.html</guid>
+      <pubDate>Wed, 24 Jan 2024 02:57:29 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;python组woc相关&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#python组woc相关&quot;&gt;&lt;/a&gt; Python 组 WoC 相关&lt;/h1&gt;
+&lt;p&gt;第二题《这些图片是什么鬼？！》&lt;br&gt;
+Kaggle 链接：&lt;a href=&quot;https://www.kaggle.com/competitions/njupt-sast-2024-woc/submissions&quot;&gt;这些图片是什么鬼？！&lt;/a&gt;&lt;/p&gt;</description>
+      
+      
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/">CS</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/categories/cs/python/">Python</category>
+      
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/python/">Python</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/pytorch/">pytorch</category>
+      
+      <category domain="https://luoyuxuanryan.github.io/tags/torchvision/">torchvision</category>
+      
+      
+      <comments>https://luoyuxuanryan.github.io/posts/553dbefa.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>图像标准化</title>

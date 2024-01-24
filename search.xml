@@ -1219,6 +1219,29 @@ inout</li>
       </tags>
   </entry>
   <entry>
+    <title>Python 组 WoC 相关</title>
+    <url>/posts/553dbefa.html</url>
+    <content><![CDATA[<h1 id="python组woc相关"><a class="markdownIt-Anchor" href="#python组woc相关"></a> Python 组 WoC 相关</h1>
+<p>第二题《这些图片是什么鬼？！》<br>
+Kaggle 链接：<a href="https://www.kaggle.com/competitions/njupt-sast-2024-woc/submissions">这些图片是什么鬼？！</a></p>
+<span id="more"></span>
+<p>题目中要求使用 ResNet50 在训练集上训练，并在 test 集上进行预测。<br>
+一开始写的代码如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">net = torchvision.models.resnet50(pretrained=<span class="literal">True</span>)</span><br><span class="line">net.fc = nn.Linear(net.fc.in_features, <span class="number">2</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>发现效果很差。<br>
+通过查阅资料，发现 ResNet50 的全连接层是 2048*1000，直接修改为 2048*2 效果很差，经过添加线性层修改后在训练集上效果变好。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">net = torchvision.models.resnet50(pretrained=<span class="literal">True</span>)</span><br><span class="line">net.fc = nn.Sequential(nn.Linear(net.fc.in_features, net.fc.in_features//<span class="number">2</span>),</span><br><span class="line">                       nn.ReLU(),</span><br><span class="line">                       nn.Linear(net.fc.in_features//<span class="number">2</span>, net.fc.in_features//<span class="number">4</span>),</span><br><span class="line">                       nn.ReLU(),</span><br><span class="line">                       nn.Dropout(<span class="number">0.4</span>),</span><br><span class="line">                       nn.Linear(net.fc.in_features//<span class="number">4</span>, <span class="number">2</span>))</span><br></pre></td></tr></tbody></table></figure>]]></content>
+      <categories>
+        <category>CS</category>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>pytorch</tag>
+        <tag>torchvision</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>图像标准化</title>
     <url>/posts/3404668d.html</url>
     <content><![CDATA[<h1 id="图像标准化"><a class="markdownIt-Anchor" href="#图像标准化"></a> 图像标准化</h1>
